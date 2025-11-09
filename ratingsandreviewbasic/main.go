@@ -109,7 +109,7 @@ func main() {
 	}
 
 	// Code where i am taking user input and Printing the stars
-	// on the basis of the same in the expected color.
+	// on the basis of the provided rating in the expected color.
 
 	type Rating struct {
 		ID       string
