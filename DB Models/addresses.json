@@ -1,0 +1,12 @@
+{
+    "addressId": "addr_123",
+    "userId": "123",
+    "mainAddress": "HSR Layout",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "zipCode": "560001",
+    "addressType": "home",
+    "createdAt": "2025-11-28",
+    "updatedAt": "2025-11-28"
+}
+

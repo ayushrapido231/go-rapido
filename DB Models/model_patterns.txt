@@ -1,0 +1,91 @@
+When user is getting called 
+reads:-
+-reading based on mobile number - lookup key: email/phone - non read heavy
+-when doing delivery confirmation-based on customer Id will fetch user - lookup key: userId - read heavy
+-my profile-userId - lookup key: userId - non read heavy
+-logout - lookup key: userId - non read heavy
+
+writes:-
+updating profile information- lookup key: userId - non write heavy
+new user -registration - lookup key: email (unique check) - non -write-heavy-depends if no camapign or advertisment going
+password reset :- lookup key: userId/email - non -write-heavy-
+deactivate - lookup key: userId - non -write-heavy
+authenticate user - lookup key: email, password - non -write-heavy
+
+
+
+When product is getting called
+reads:-
+-browse products - lookup key: none (scan all) - read heavy
+-search products by name/category - lookup key: productName, categoryId - read heavy
+-view product details by productId - lookup key: productId - non read heavy
+-filter products by category/brand/price - lookup key: categoryId, brand, price range - read heavy
+-view product availability/quantity - lookup key: productId - non read heavy
+-related products recommendations - lookup key: categoryId, subCategoryId - read heavy
+
+writes:-
+-add new product - lookup key: productId (unique check) - non write heavy
+-update product information - lookup key: productId - non write heavy
+-update product quantity/stock - lookup key: productId - write heavy
+-deactivate product - lookup key: productId - non write heavy
+-update product price/discount - lookup key: productId - non write heavy
+
+
+When order is getting called 
+reads:-
+-view order history by userId - lookup key: userId - read heavy
+-view order details by orderId - lookup key: orderId - non read heavy
+-track order status - lookup key: orderId - read heavy
+-view orders by date range - lookup key: orderDate, userId - read heavy
+-view orders by status - lookup key: orderStatus, userId - read heavy
+
+writes:-
+-create new order - lookup key: orderId (unique check), userId - write heavy
+-update order status - lookup key: orderId - write heavy
+-cancel order - lookup key: orderId - write heavy
+-update payment status - lookup key: orderId - write heavy
+-update order items - lookup key: orderId, productId - write heavy
+
+
+
+When cart is getting called
+reads:-
+-view cart by userId - lookup key: userId - read heavy
+-view cart items - lookup key: userId, cartId - read heavy
+-calculate cart total - lookup key: userId, cartId - read heavy
+
+writes:-
+-add item to cart - lookup key: userId, cartId, productId - write heavy
+-update item quantity in cart - lookup key: userId, cartId, productId - write heavy
+-remove item from cart - lookup key: userId, cartId, productId - write heavy
+-clear cart - lookup key: userId, cartId - write heavy
+
+
+
+
+When category is getting called
+reads:-
+-browse all categories - lookup key: none (scan all) - read heavy
+-view category details by categoryId - lookup key: categoryId - non read heavy
+-view products in category - lookup key: categoryId - read heavy
+-view active discounts in category - lookup key: categoryId, discounts.startDate, discounts.endDate - read heavy
+
+writes:-
+-add new category - lookup key: categoryId (unique check) - non write heavy
+-update category information - lookup key: categoryId - non write heavy
+-add/update category discounts - lookup key: categoryId - non write heavy
+-deactivate category - lookup key: categoryId - non write heavy
+
+
+
+When address is getting called
+reads:-
+-get user addresses by userId - lookup key: userId - non read heavy
+-get address by addressId - lookup key: addressId - non read heavy
+-validate address - lookup key: addressId - non read heavy
+
+writes:-
+-add new address - lookup key: addressId (unique check), userId - non write heavy
+-update address - lookup key: addressId - non write heavy
+-delete address - lookup key: addressId - non write heavy
+-set default address - lookup key: addressId, userId - non write heavy

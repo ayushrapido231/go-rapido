@@ -1,0 +1,62 @@
+User : 
+reads:-
+reading based on mobile number - non read heavy
+when doing delivery confirmation will fetch user - read heavy
+my profile - non read heavy
+logout - non read heavy
+
+writes:-
+updating profile information - non write heavy
+new user registration - non write heavy (depends if no campaign or advertisement going)
+password reset - non write heavy
+deactivate - non write heavy
+authenticate user - non write heavy
+
+
+
+Product : 
+reads -
+browse products - read heavy
+search products by name/category - read heavy
+view product details - non read heavy
+filter products by category/brand/price - read heavy
+view product availability/quantity - non read heavy
+related products recommendations - read heavy
+
+writes -
+add new product - non write heavy
+update product information - non write heavy
+update product quantity/stock - write heavy
+delete product - non write heavy
+update product price/discount - non write heavy
+
+
+
+Order : 
+reads -
+view order history - read heavy
+view order details - non read heavy
+track order status - read heavy
+view orders by date range - read heavy
+view orders by status - read heavy
+
+writes:-
+create new order - write heavy
+update order status - write heavy
+cancel order - write heavy
+update payment status - write heavy
+update order items - write heavy
+
+
+
+Cart : 
+reads:-
+view cart - read heavy
+view cart items - read heavy
+calculate cart total - read heavy
+
+writes:-
+add item to cart - write heavy
+update item quantity in cart - write heavy
+remove item from cart - write heavy
+clear cart - write heavy
