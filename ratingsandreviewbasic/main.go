@@ -180,7 +180,7 @@ func main() {
 		Ratings: []ProductRating{}, // slice of ProductRating
 	}
 
-	scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin) // to read standard input
 
 	for { // infinite loop
 		uid := readUserInput(scanner, "Enter user ID (or type 'exit' to quit): ")
